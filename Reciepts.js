@@ -188,12 +188,25 @@ $(document).ready(function () {
       </tr>
     `);
 
-    // Clear DR Number field
     $("input[id='Customer']").val("");
+    $("input[id='total']").val("");
 
     // Increment DR Number by 1
     var drNumInput = $("input[id='DRnumber']");
-    var currentDR = parseInt(drNumInput.val()) || 0;
-    drNumInput.val(currentDR + 1); // increment by 1
+    var currentValue = drNumInput.val();
+
+    if (currentValue) {
+      // Case 1: With prefix like si#123
+      var match = currentValue.match(/^([a-zA-Z#]+)?(\d+)$/);
+
+      if (match) {
+        var prefix = match[1] || ""; // if no prefix, make it empty
+        var numberPart = match[2];
+        var number = parseInt(numberPart) + 1;
+
+        drNumInput.val(prefix + number);
+      }
+    }
   });
 });
+
