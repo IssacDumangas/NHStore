@@ -28,16 +28,38 @@ $(document).ready(function () {
 
   // Autocomplete for item names
   $(document).on("focus", ".itemName", function () {
-    $(this).autocomplete({
-      source: itemsList.map((i) => i.name),
-      select: function (event, ui) {
-        var selectedItem = itemsList.find((i) => i.name === ui.item.value);
-        var row = $(this).closest("tr");
-        row.find(".unitCost").val(selectedItem.unitCost);
-        calculateRow(row);
-      },
-      minLength: 1,
-    });
+    var input = $(this);
+
+    input
+      .autocomplete({
+        source: itemsList.map((i) => ({
+          label: i.name,
+          value: i.name,
+          unitCost: i.unitCost,
+        })),
+
+        select: function (event, ui) {
+          var row = $(this).closest("tr");
+
+          $(this).val(ui.item.value);
+          row.find(".unitCost").val(ui.item.unitCost);
+
+          calculateRow(row);
+          return false;
+        },
+
+        minLength: 1,
+      })
+      .autocomplete("instance")._renderItem = function (ul, item) {
+      return $("<li>")
+        .append(
+          `<div style="display:flex; justify-content:space-between;">
+            <span>${item.label}</span>
+            <span style="color:red; font-weight:300;">${item.unitCost}</span>
+        </div>`,
+        )
+        .appendTo(ul);
+    };
   });
 
   function calculateGrand() {
@@ -191,7 +213,6 @@ $(document).ready(function () {
     $("input[id='Customer']").val("");
     $("input[id='total']").val("");
 
-    // Increment DR Number by 1
     var drNumInput = $("input[id='DRnumber']");
     var currentValue = drNumInput.val();
 
@@ -209,4 +230,3 @@ $(document).ready(function () {
     }
   });
 });
-
