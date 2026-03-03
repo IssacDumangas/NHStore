@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="Delivery.js"></script>
+    <link rel="stylesheet" href="Delivery.css" />
+    <title>NH STORE DELIVERY REPORT</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" id="navbar"></nav>
+    <div class="container">
+        <div class="form-card shadow-lg p-4 bg-white rounded">
+        <div id="alertContainer"></div>
+        <div class="div h4">Delivery Report</div>
+        <form id="deliveryform">         
+          <div class="table-container shadow-sm rounded">
+            <table id="tripsTable" >
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Number of Helper</th>
+                  <th>Trips</th>
+                  <th>Color</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input type="date" class="date form-control" required></td>
+                  <td><select class="name form-select" required>
+                    <option selected>Select a Name</option>
+                    <option value="Benten">Benten</option>
+                    <option value="Inggo">Inggo</option>
+                    <option value="Joey">Joey</option>
+                    <option value="Joshua">Joshua</option>
+                    <option value="Larry">Larry</option>
+                    <option value="Marlon">Marlon</option>
+                    <option value="Meme">Meme</option>
+                    <option value="Ompong">Ompong</option>
+                    <option value="Ramil">Ramil</option>
+                    <option value="Reymark">Reymark</option>
+                  </select></td>
+                  <td><input type="number" class="helper form-control"></td>
+                  <td>
+                    <select class="trip form-select multiSelect" multiple required>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="PickUp KB">PickUp KB</option>
+                      <option value="PickUp Suning">PickUp Suning</option>
+                      <option value="PickUp Marc">PickUp Marc</option>
+                    </select>
+                  </td>
+                  <td>
+                      <select class="color form-select" required>
+                        <option selected>Select Color</option>
+                         <option value="Green">Green</option>
+                         <option value="Red">Red</option>
+                      </select>
+                  </td>
+                  <td>
+                    <button type="button" class="removeRow form-control">
+                      <i class="bi bi-trash-fill text-danger"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="section2">
+            <button
+              type="button"
+              id="addRow"
+              class="btn btn-dark btn-sm addrowbtn mt-4 shadow-lg text-light fw-bold"
+            >
+              Add Row
+            </button>
+            <button
+              type="submit"
+              class="btn btn-primary btn-sm adddeliverybtn mt-4 shadow-lg fw-bold"
+            >
+              Save Delivery
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+  </body>
+</html>
