@@ -3,9 +3,16 @@ $(document).ready(function () {
     $("#Receipts").addClass("active");
   });
 
+  $(document).on("change", ".typere", function () {
+  var selectedType = $(this).val();
+
+  $("#itemsTable tbody .type").val(selectedType);
+  });
+
   $("#addRow").click(function () {
     var newRow = $("#itemsTable tbody tr:first").clone();
     newRow.find("input").val("");
+    newRow.find(".type").val($(".typere").val());
     $("#itemsTable tbody").append(newRow);
   });
 
