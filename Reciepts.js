@@ -136,6 +136,7 @@ $(document).ready(function () {
 
     $("#itemsTable tbody tr").each(function () {
       items.push({
+        type: $(this).find(".type").val(),
         name: $(this).find(".itemName").val(),
         quantity: $(this).find(".quantity").val(),
         price: $(this).find(".price").val(),
@@ -181,6 +182,9 @@ $(document).ready(function () {
 
     $("#itemsTable tbody").html(`
       <tr>
+        <td>
+          <input type="text" class="type form-control" required />
+        </td>
         <td>
           <input type="text" class="itemName form-control" required />
         </td>
