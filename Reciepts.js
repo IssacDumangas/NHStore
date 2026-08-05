@@ -143,7 +143,6 @@ $(document).ready(function () {
 
     $("#itemsTable tbody tr").each(function () {
       items.push({
-        type: $(this).find(".type").val(),
         name: $(this).find(".itemName").val(),
         quantity: $(this).find(".quantity").val(),
         price: $(this).find(".price").val(),
@@ -155,7 +154,7 @@ $(document).ready(function () {
     });
 
     fetch(
-      "https://script.google.com/macros/s/AKfycbwpH6_i7aAVYk03po_o1svJXzIk6R71vUmEzfg2Bx-cxfVQybjlbnyCuruAWDoq4ORRkg/exec",
+      "https://script.google.com/macros/s/AKfycbyi-STN9QIIUnOhpcmweCoZnOwpLKq52yM6gingDzisxl2yPcNFIul_thZ34i8Y49O5bg/exec",
       {
         method: "POST",
         mode: "no-cors",
@@ -163,6 +162,7 @@ $(document).ready(function () {
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: new URLSearchParams({
+          type: $("input[id='type']").val(),
           date: $("input[id='Date']").val(),
           dr_number: $("input[id='DRnumber']").val(),
           customer: $("input[id='Customer']").val(),
@@ -189,9 +189,6 @@ $(document).ready(function () {
 
     $("#itemsTable tbody").html(`
       <tr>
-        <td>
-          <input type="text" class="type form-control" required />
-        </td>
         <td>
           <input type="text" class="itemName form-control" required />
         </td>
