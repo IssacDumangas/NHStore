@@ -147,7 +147,7 @@ $(document).ready(function () {
     });
 
     fetch(
-      "https://script.google.com/macros/s/AKfycbyi-STN9QIIUnOhpcmweCoZnOwpLKq52yM6gingDzisxl2yPcNFIul_thZ34i8Y49O5bg/exec",
+      "https://script.google.com/macros/s/AKfycbxW0tDjWtVk1M9kCGjnaoQExVzc_DbXqNflAMWEdB_h88iGtXhTrdR3eTJ1RUztmqa6JQ/exec",
       {
         method: "POST",
         mode: "no-cors",
