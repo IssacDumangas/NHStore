@@ -155,7 +155,7 @@ $(document).ready(function () {
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: new URLSearchParams({
-          type: $("input[id='type']").val(),
+          type: $("#type").val(),
           date: $("input[id='Date']").val(),
           dr_number: $("input[id='DRnumber']").val(),
           customer: $("input[id='Customer']").val(),
