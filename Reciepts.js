@@ -223,6 +223,7 @@ $(document).ready(function () {
 
     $("input[id='Customer']").val("");
     $("input[id='total']").val("");
+    $("input[class='type']").val("");
 
     var drNumInput = $("input[id='DRnumber']");
     var currentValue = drNumInput.val();
