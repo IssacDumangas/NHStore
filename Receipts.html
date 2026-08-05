@@ -67,7 +67,8 @@
             <div class="section1-type">
               <div class="form-floating shadow-sm" style="width: 250px">
                 <select type="text"
-                  class="typere form-control"
+                  class="form-control"
+                  id="type"
                   required>
                   <option value="">Select Document Type</option>
                   <option value="Sale Receipt">Sale Receipt</option>
@@ -81,7 +82,6 @@
             <table id="itemsTable">
               <thead>
                 <tr>
-                  <th>Type</th>
                   <th>Item</th>
                   <th>Qty</th>
                   <th>Selling Price</th>
@@ -94,9 +94,6 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>
-                    <input type="text" class="type form-control" required />
-                  </td>
                   <td>
                     <input type="text" class="itemName form-control" required />
                   </td>
